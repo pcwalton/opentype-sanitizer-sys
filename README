@@ -1,0 +1,9 @@
+These are basic Rust bindings for the `ots` OpenType sanitizer library [1], generated with
+`bindgen` [2].
+
+This is useful for hardening applications that need to pass untrusted fonts to system libraries
+and/or FreeType.
+
+[1]: https://github.com/khaledhosny/ots
+
+[2]: https://github.com/rust-lang-nursery/rust-bindgen
