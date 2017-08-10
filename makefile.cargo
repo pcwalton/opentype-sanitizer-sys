@@ -1,0 +1,16 @@
+SRC_DIR = $(shell pwd)
+OTS_SRC := $(SRC_DIR)/ots
+
+.PHONY:	all maybe-configure
+
+all:	maybe-configure
+	cd $(OUT_DIR) && $(MAKE) -f Makefile -j$(NUM_JOBS)
+
+maybe-configure:
+	cd $(OTS_SRC) && \
+		git submodule init && \
+		git submodule sync && \
+		git submodule update && \
+		autoreconf --force --install && \
+		cd $(OUT_DIR) && \
+		$(OTS_SRC)/configure
